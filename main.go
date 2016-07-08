@@ -36,6 +36,10 @@ func main() {
 		return
 	}
 
+	// Collect information now.
+	collector.GetChatMembersCount()
+
+	// Collect information every 10 minutes.
 	gocron.Every(10).Minutes().Do(collector.GetChatMembersCount)
 	<-gocron.Start()
 }
